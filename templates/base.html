@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- My CSS -->
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='assets/style.css') }}">
+
+    <title>Current Weather</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark bg-primary">
+      <div class="container justify-content-center">
+        <a class="navbar-brand" href="#">What's the weather like?</a>
+      </div>
+    </nav>
+    <!-- Home -->
+    <div class="container mt-5">
+      <!-- Input Field -->
+      <div class="row justify-content-center">
+        <div class="col-md-5">
+          <form action="" method="POST">
+            <div class="form-group">
+              <label for="city-name">City name</label>
+              <input type="text" name="cityName" class="form-control" id="city-name" autocomplete="off" autofocus>
+            </div>
+            <div class="form-group">
+              <label for="temperature-units">Temperature units</label>
+              <select class="form-control" name="temperatureUnits" id="temperature-units">
+                <option value="metric">Celsius</option>
+                <option value="imperial">Fahrenheit</option>
+                <option value="standard">Kelvin</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-outline-primary float-right my-2">Search</button>
+          </form>
+        </div>
+        <!-- Cards -->    
+        {% block content %}
+        {% endblock %}
+      </div>
+    </div>
+  </body>
+</html>
